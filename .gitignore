@@ -1,0 +1,15 @@
+# Konfiguracja i stan lokalnej instalacji - nie wersjonujemy.
+config.json
+seen_offers.json
+.env
+data/*
+!data/.gitkeep
+
+# Srodowisko Pythona
+venv/
+.venv/
+__pycache__/
+*.pyc
+
+# System
+.DS_Store

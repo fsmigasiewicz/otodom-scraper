@@ -1,0 +1,12 @@
+venv/
+__pycache__/
+*.pyc
+config.json
+seen_offers.json
+data/
+.git/
+.github/
+.gitignore
+README.md
+docker-compose.yml
+.DS_Store

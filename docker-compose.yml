@@ -1,0 +1,16 @@
+# Compose do lokalnego developmentu i testow - buduje obraz ze zrodel.
+# Wdrozenie produkcyjne uzywa gotowego obrazu z GHCR; patrz README.
+services:
+  otodom-scraper:
+    build: .
+    image: otodom-scraper:dev
+    container_name: otodom-scraper
+    restart: unless-stopped
+    environment:
+      SEARCH_URL: ${SEARCH_URL:?ustaw SEARCH_URL w .env}
+      DISCORD_WEBHOOK_URL: ${DISCORD_WEBHOOK_URL:-}
+      NOTIFY_ON_FIRST_RUN: ${NOTIFY_ON_FIRST_RUN:-false}
+      CRON_SCHEDULE: ${CRON_SCHEDULE:-0 * * * *}
+      TZ: ${TZ:-Europe/Warsaw}
+    volumes:
+      - ./data:/app/data
